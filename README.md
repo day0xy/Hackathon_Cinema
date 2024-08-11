@@ -1,66 +1,32 @@
-## Foundry
+# 简介
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+为影院和消费者提供一个平台用于租赁影院座位，在每场电影放映后，给予未售出座位的租赁者一定奖励
 
-Foundry consists of:
+# 具体功能
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+1.影院方面
 
-## Documentation
+mint 接口，给影院方输入参数，从而 mint 座位对应的 NFT
 
-https://book.getfoundry.sh/
+参数：价格，时间（或场次），对应座位，等等。
 
-## Usage
+问题：如何将参数写入 NFT 属性，如何使用时间作为依据（难以实现可以先用场次），
 
-### Build
+2.消费者方面
 
-```shell
-$ forge build
-```
+lease 接口，选择影院座位，交易对应 NFT
 
-### Test
+3.主体
 
-```shell
-$ forge test
-```
+film 接口，每场电影放映结束触发，发放奖励等等
 
-### Format
+buy 接口，每场电影座位售出后触发。
 
-```shell
-$ forge fmt
-```
+award，奖励机制
 
-### Gas Snapshots
+# 根据现有项目，需要做修改的部分：
 
-```shell
-$ forge snapshot
-```
+1.NFT，mint 接口，基本完全重写，需要将参数作为 NFT 属性 mint。
 
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+2.award，直接交易 ETH，使用 ETH 作为奖励，USDT 可后续拓展。
+3.film，buy 等略作修改。
