@@ -50,10 +50,6 @@ struct    NFTOfSeat{
 
 
 
-
-
-~~listFilm				上架电影~~
-
 listFilmWithAward(uint256 id,)	    上架电影 带有奖励机制
 
 
@@ -61,6 +57,8 @@ listFilmWithAward(uint256 id,)	    上架电影 带有奖励机制
 _awardUSDT			内部方法，奖励售出成功者usdt
 
 _awardPoints		      内部方法，奖励售出失败者积分，用于兑换电影票，也可以激励租凭者去卖给用户获利
+
+
 
 
 
