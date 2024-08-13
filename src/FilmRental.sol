@@ -22,6 +22,9 @@ contract FilmRental is Ownable {
     uint256[] public filmIds; //电影id列表
     mapping(uint256 => Film) public films; //映射id到电影信息
     mapping(uint256 => NftOfSeat) public nftOfSeat; //映射nft到座位信息
+    mapping(uint256 => uint256) public filmToNft; //映射电影到nft
+    mapping(address=> uint256) public points; //映射用户地址到积分
+
 
     struct Film {
         uint256 id; //电影id

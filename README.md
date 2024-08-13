@@ -18,13 +18,13 @@ todo：   合约代码注释全部转为英文，要求中英双语文档readme
 
 1.影院方面
 
-影院上架电影,**平台**给电影分配id,拥有者，影院自己设置电影价格price，分配电影场次，每个座位售出成功的usdt奖励值，售出失败的积分奖励值,~~每个区域售出成功的usdt奖励值，售出失败的积分奖励值。~~    平台根据情况给每个座位mint NFT，所有权归**影院所有**
+影院上架电影,**平台**给电影分配id,拥有者，影院自己设置电影价格price，分配电影场次，每个座位售出成功的usdt奖励值，售出失败的积分奖励值,~~每个区域售出成功的usdt奖励值，售出失败的积分奖励值。~~    
 
 
 
+每一部电影的token URL不一样
 
-
-
+平台根据情况给每个座位mint NFT，所有权归**影院所有**
 
 
 
@@ -46,19 +46,22 @@ todo：细化电影场次分配，可以分配不同的影厅;细化到每个座
 
 3.主体
 
-struct    NFTOfSeat{
+function  listFilm(
 
-​	seatX 				//座位号横排号
+​	uint256 _id,
+​        string memory _name,
+​        uint256 _hallId,
+​        uint256 _startTime,
+​        uint256 _endTime,
+​        uint256 _basePrice)	    上架电影 带有奖励机制
 
-​        seatY 				//座位号列排号
-
-}
+function  rentFilmSeat( uint256 _id,)
 
 
 
+function  withDraw
 
 
-listFilmWithAward(uint256 id,)	    上架电影 带有奖励机制
 
 
 
